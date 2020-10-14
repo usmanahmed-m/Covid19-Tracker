@@ -4,7 +4,14 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 
 // const options = ["Global", "Country", "Country1"];
 
-export default function SelectCountry() {
+export default function SelectCountry({data}) {
+
+
+  const countries = {...data[0]}
+
+  const newCountries = Object.values(countries).map((country) => country.title)
+
+  console.log('NewCountries', newCountries);
 
   const options = ['Option 1', 'Option 2'];
 

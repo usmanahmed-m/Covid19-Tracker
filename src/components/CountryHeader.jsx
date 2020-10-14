@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 export default function CountryHeader() {
   const classes = useStyles();
 
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   
   useEffect(() => {
@@ -58,7 +58,7 @@ console.log(data);
           <Typography variant="h6" className={classes.title}>
             COUNTRY DATA
           </Typography>
-          <SelectCountry />
+          <SelectCountry data={data} />
         </Toolbar>
       </AppBar>
     </div>
