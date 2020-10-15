@@ -4,6 +4,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import SelectCountry from "./SelectCountry";
+import CountryGraph from './CountryGraph';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,8 +17,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CountryHeader() {
+export default function CountryData() {
   const classes = useStyles();
+
+  const [value, setValue] = useState('Afghanistan')
 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -46,7 +49,7 @@ export default function CountryHeader() {
   }, []);
 
 
-console.log(data);
+// console.log(value);
 
   if(loading){
     return <div>Loading</div>
@@ -58,9 +61,10 @@ console.log(data);
           <Typography variant="h6" className={classes.title}>
             COUNTRY DATA
           </Typography>
-          <SelectCountry data={data} />
+          <SelectCountry data={data} value={value} setValue={setValue} />
         </Toolbar>
       </AppBar>
+      <CountryGraph value={value} data={data}/>
     </div>
   );
 }
