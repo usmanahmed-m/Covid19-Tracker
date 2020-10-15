@@ -26,7 +26,7 @@ const CountryGraph = ({value, data}) => {
     labels: newLabels,
     datasets: [
       {
-        label: value === null ? 'Select Country': value,
+        label: value === null ? 'Select Country': `${value} Cases`,
         backgroundColor: "rgba(255,99,132,0.2)",
         borderColor: "rgba(255,99,132,1)",
         borderWidth: 1,
